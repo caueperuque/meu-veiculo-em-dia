@@ -6,10 +6,11 @@ import onix from "../../assets/onix.jpg";
 import mustang from "../../assets/mustang.jpg";
 import fazer from "../../assets/fazer.jpg";
 import biz from "../../assets/biz.jpg";
+import './CarouselComponent.css';
 
 export default function CarouselComponent() {
   return (
-    <div className="testee">
+    <div className="carousel">
       <Carousel infiniteLoop={true}>
       <div>
         <img src={onix} />

@@ -54,11 +54,7 @@
   color: #ea1d2c;
 }
 
-.testee {
-  width: 50%;  /* Ajuste conforme necessário */
-  height: 500px;  /* Ajuste conforme necessário */
-  margin: 0 auto;  /* Centraliza o carrossel na página */
-}
+
 
 .header__logo {
   width: 150px;
