@@ -1,0 +1,86 @@
+.header__container {
+  position: fixed;
+  background-color: #f7f7f7;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  box-shadow: 0px 0px 8px rgb(22, 22, 22);
+}
+
+.header__navbar {
+  padding: 0px 32px;
+  display: flex;
+  width: 70%; 
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px red solid; */
+}
+
+.header__btns {
+  display: flex;
+  /* justify-content: space-between; */
+  /* border: 2px green solid; */
+}
+
+.header__btn-sign {
+  margin-right: 10px;
+  background-color: #f7f7f7;
+  color: #ea1d2c;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.header__btn-login {
+  margin-right: 10px;
+  background-color: #ea1d2c;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.header__title {
+  color: #ea1d2c;
+}
+
+.testee {
+  width: 50%;  /* Ajuste conforme necessário */
+  height: 500px;  /* Ajuste conforme necessário */
+  margin: 0 auto;  /* Centraliza o carrossel na página */
+}
+
+.header__logo {
+  width: 150px;
+  /* border: 1px solid green; */
+  border-radius: 50%;
+}
+
+#teste {
+  width: 100px
+}
+
+.header__btn-sign:hover {
+  border-color: #ea1d2c;
+}
+
+.header__btn-login:focus,
+.header__btn-login:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.header__btn-sign:focus,
+.header__btn-sign:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
