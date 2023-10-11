@@ -1,5 +1,9 @@
-.carousel {
+.carousel__teste {
   width: 50%;
   height: 500px;
-  margin: 0 auto;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  /* border: solid 2px red; */
 }

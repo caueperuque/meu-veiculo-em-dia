@@ -8,10 +8,16 @@ import fazer from "../../assets/fazer.jpg";
 import biz from "../../assets/biz.jpg";
 import './CarouselComponent.css';
 
+class CustomCarousel extends Carousel {
+  renderThumbs() {
+    return;
+  }
+}
+
 export default function CarouselComponent() {
   return (
-    <div className="carousel">
-      <Carousel infiniteLoop={true}>
+    <div className="carousel__teste">
+      <CustomCarousel infiniteLoop={true}>
       <div>
         <img src={onix} />
       </div>
@@ -27,7 +33,7 @@ export default function CarouselComponent() {
       <div>
         <img src={biz} />
       </div>
-    </Carousel>
+    </CustomCarousel>
     </div>
   );
 };

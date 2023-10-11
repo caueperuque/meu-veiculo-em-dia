@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   /* border: 2px red solid; */
-  width: 418%;
+  width: 100%;
+  /* height: 100vw; */
 }
 
 .signin__form {
@@ -13,7 +14,7 @@
   /* border: 2px solid red; */
   border-radius: 5px;
   width: 30%;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 10px rgb(192, 191, 191);
   height: 30vw;
   text-align: center;
   color: #414143;
@@ -29,12 +30,13 @@
 .signin__input-email, .signin__input-password {
   /* border: solid 2px blue; */
   border: solid 1px #414143;
+  color: black;
   border-radius: 3px;
-  width: 70%;
+  width: 80%;
   height: 1vw;
   margin: 1vw;
   padding: 1vw;
-  font-size: 1.5vw;
+  font-size: 1vw;
   background-color: white;
 }
 
