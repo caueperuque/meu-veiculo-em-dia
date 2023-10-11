@@ -7,11 +7,16 @@ import {
 } from "react-router-dom";
 import Home from './pages/ Home.jsx';
 import ContextProvider from './context/ContexProvider';
+import SignIn from './pages/SignIn';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home/>
+  },
+  {
+    path: "/signin",
+    element: <SignIn />
   }
 ])
 
