@@ -1,4 +1,4 @@
-.signin__container {
+.signup__container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   height: 100vh;
 }
 
-.signin__form {
+.signup__form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@
   color: #414143;
 }
 
-.signin__container-fields {
+.signup__container-fields {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +32,7 @@
   
 }
 
-.signin__input-email, .signin__input-password {
+.signup__input-email, .signup__input-password {
   /* border: solid 2px blue; */
   border: solid 1px #414143;
   color: black;
@@ -45,7 +45,7 @@
   background-color: white;
 }
 
-.signin__btn {
+.signup__btn {
   margin-right: 10px;
   background-color: #ea1d2c;
   color: white;
@@ -59,11 +59,11 @@
   transition: border-color 0.25s;
 }
 
-.signin__btn:hover {
+.signup__btn:hover {
   color: white;
 }
 
-.signin__btn:focus,
-.signin__btn:focus-visible {
+.signup__btn:focus,
+.signup__btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }

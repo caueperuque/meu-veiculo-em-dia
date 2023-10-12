@@ -1,31 +1,29 @@
-import { useContext } from 'react';
-import './styles/SignIn.css';
-import Context from '../context/Context';
 import { Link } from 'react-router-dom';
+import Context from '../context/Context';
+import { useContext } from 'react';
 
-export default function SignIn() {
+export default function Login() {
   const {
     inputEmail,
     inputPassword,
     email,
     password,
-    saveSignIn,
+    verifyLogin,
     errorLogin,
   } = useContext(Context);
 
   return (
-    <main className="signin__container">
-      <form className="signin__form">
+    <main className="signup__container">
+      <form className="signup__form">
         <div>
-          <h1 className="signin__title">Criar Conta</h1>
-          <h3 className="signin__slogan">Falta pouco para deixar seu veículo em dia!</h3>
+          <h1 className="signup__title">Login</h1>
         </div>
-        <div className="signin__container-fields">
+        <div className="signup__container-fields">
           <label htmlFor="email">
             <h3>Email: </h3>
             <input
               id="email"
-              className="signin__input-email" 
+              className="signup__input-email" 
               type="text"
               onChange={inputEmail}
               value={email}
@@ -36,7 +34,7 @@ export default function SignIn() {
             <h3>Senha:</h3>
             <input
               id="password"
-              className="signin__input-password"
+              className="signup__input-password"
               type="password"
               onChange={inputPassword}
               value={password}
@@ -44,11 +42,11 @@ export default function SignIn() {
             />
           </label>
         </div>
-        <Link to="/home" className="signin__btn" type="submit" onClick={saveSignIn}>
-          Cadastrar
+        <Link to="/home" className="signup__btn" type="submit" onClick={verifyLogin}>
+          Entrar
         </Link>
-        { errorLogin && <p className="signin__error">Preencha os campos corretamente</p> }
+        { errorLogin && <p className="signup__error">Email ou senha inválidos</p> }
       </form>
     </main>
-  )
+  );
 }

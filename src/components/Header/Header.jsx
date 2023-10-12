@@ -4,7 +4,7 @@ import Context from '../../context/Context';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
-  const { signIn } = useContext(Context);
+  // const { signUp } = useContext(Context);
 
   return (
     <header className="header__container">
@@ -12,12 +12,12 @@ export default function Header() {
         <img src={logo} className="header__logo"/>
         <h1 className="header__title">Meu Veículo em Dia</h1>
         <div className="header__btns">
-          <Link to="/signin" className="header__btn-sign">
+          <Link to="/signup" className="header__btn-signup">
             Criar Conta
           </Link>
-          <button className="header__btn-login">
+          <Link to="/login" className="header__btn-login">
             Login
-          </button>
+          </Link>
         </div>
       </nav>
     </header>

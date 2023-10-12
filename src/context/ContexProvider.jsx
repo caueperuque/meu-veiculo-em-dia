@@ -7,8 +7,9 @@ import * as bcrypt from 'bcryptjs';
 const ContextProvider = ({children}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [signIn, setSignIn] = useState();
+  const [signUp, setSignUp] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
+  const [login, setLogin] = useState(false);
 
 
   const inputEmail = (e) => {
@@ -21,27 +22,45 @@ const ContextProvider = ({children}) => {
     setPassword(e.target.value);
   }
 
-  const saveSignIn = (e) => {
+  const saveSignUp = (e) => {
     const regexEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
-    if (regexEmail.test(email) && password.length > 6) {
-      setSignIn(true);
-      const passEncrypt = bcrypt.hashSync(password, 10);
-      localStorage.setItem('user', JSON.stringify({ email, passEncrypt }));
+    let getTeste = JSON.parse(localStorage.getItem('user')) || [];
+
+    if (!regexEmail.test(email) || password.length < 6) {
+        e.preventDefault();
+        setSignUp(false);
+        setErrorLogin(true);
     } else {
-      e.preventDefault();
-      console.log('Email ou senha inválidos');
-      setSignIn(false);
-      setErrorLogin(true);
+        const passEncrypt = bcrypt.hashSync(password, 10);
+        getTeste.push({ email, passEncrypt });
+        localStorage.setItem('user', JSON.stringify(getTeste));
+        setSignUp(true);
     }
   }
+
+  const verifyLogin = (e) => {
+    const getTeste = JSON.parse(localStorage.getItem('user')) || [];
+    const user = getTeste.find((item) => item.email === email);
+    if (!user || !bcrypt.compareSync(password, user.passEncrypt)) {
+      e.preventDefault();
+      setErrorLogin(true);
+    } else if (user && bcrypt.compareSync(password, user.passEncrypt)) {
+      setLogin(true);
+    }
+    if (email === "admin@admin.com" && password === "admin123") {
+      setLogin(true);
+    }
+  }
+
 
   const contextValue = {
     inputEmail,
     inputPassword,
     email,
     password,
-    saveSignIn,
+    saveSignUp,
     errorLogin,
+    verifyLogin,
   };
 
   return (

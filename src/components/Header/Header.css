@@ -25,7 +25,7 @@
   /* border: 2px green solid; */
 }
 
-.header__btn-sign {
+.header__btn-signup {
   margin-right: 10px;
   background-color: #f7f7f7;
   color: #ea1d2c;
@@ -41,6 +41,9 @@
 
 .header__btn-login {
   margin-right: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
   background-color: #ea1d2c;
   border-radius: 8px;
   border: 1px solid transparent;
@@ -68,7 +71,7 @@
   width: 100px
 }
 
-.header__btn-sign:hover {
+.header__btn-signup:hover {
   border-color: #ea1d2c;
 }
 
@@ -77,8 +80,8 @@
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.header__btn-sign:focus,
-.header__btn-sign:focus-visible {
+.header__btn-signup:focus,
+.header__btn-signup:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
