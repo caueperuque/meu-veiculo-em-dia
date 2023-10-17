@@ -5,13 +5,30 @@ import { useState } from 'react';
 import * as bcrypt from 'bcryptjs';
 
 const ContextProvider = ({children}) => {
+  const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [name, setName] = useState();
+  const [phone, setPhone] = useState();
+  const [address, setAddress] = useState();
+  
   const [signUp, setSignUp] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
   const [login, setLogin] = useState(false);
 
+  const inputName = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+  }
+
+  const inputPhone = (e) => {
+    e.preventDefault();
+    setPhone(e.target.value);
+  }
+
+  const inputAddress = (e) => {
+    e.preventDefault();
+    setAddress(e.target.value);
+  }
 
   const inputEmail = (e) => {
     e.preventDefault();
@@ -23,22 +40,24 @@ const ContextProvider = ({children}) => {
     setPassword(e.target.value);
   }
 
-  const inputName = (e) => {
-    e.preventDefault();
-    setName(e.target.value);
-  }
 
   const saveSignUp = (e) => {
     const regexEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
     let getTeste = JSON.parse(localStorage.getItem('user')) || [];
 
-    if (!regexEmail.test(email) || password.length < 6) {
+    if (
+        !regexEmail.test(email) 
+        || password.length < 6
+        || !name
+        || phone.length !== 11
+      ) {
         e.preventDefault();
+        console.log(name);
         setSignUp(false);
         setErrorLogin(true);
     } else {
         const passEncrypt = bcrypt.hashSync(password, 10);
-        getTeste.push({ email, passEncrypt, name });
+        getTeste.push({ email, passEncrypt, name, phone, address });
         localStorage.setItem('user', JSON.stringify(getTeste));
         setSignUp(true);
     }
@@ -69,6 +88,10 @@ const ContextProvider = ({children}) => {
     verifyLogin,
     inputName,
     name,
+    inputPhone,
+    phone,
+    inputAddress,
+    address,
   };
 
   return (
