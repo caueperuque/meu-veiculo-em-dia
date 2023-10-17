@@ -11,6 +11,7 @@ const ContextProvider = ({children}) => {
   const [phone, setPhone] = useState();
   const [address, setAddress] = useState();
   const [userName, setUserName] = useState("");
+  const [products, setProducts] = useState();
   
   const [signUp, setSignUp] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
@@ -69,15 +70,17 @@ const ContextProvider = ({children}) => {
   const verifyLogin = (e) => {
     const getTeste = JSON.parse(localStorage.getItem('user')) || [];
     const user = getTeste.find((item) => item.email === email);
+    if (email === "admin@admin.com" && password === "admin123") {
+      return setLogin(true);
+    }
     if (!user || !bcrypt.compareSync(password, user.passEncrypt)) {
       e.preventDefault();
+      console.log(email === "admin@admin.com");
       setErrorLogin(true);
     } else if (user && bcrypt.compareSync(password, user.passEncrypt)) {
       setLogin(true);
     }
-    if (email === "admin@admin.com" && password === "admin123") {
-      setLogin(true);
-    }
+
   }
 
   const userLogin = (e) => {
@@ -102,6 +105,8 @@ const ContextProvider = ({children}) => {
     address,
     setUserName,
     userName,
+    setProducts,
+    products,
   };
 
   return (

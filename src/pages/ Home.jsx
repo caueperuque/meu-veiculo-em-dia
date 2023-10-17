@@ -6,12 +6,20 @@ export default function Home() {
   useEffect(() => {
     // const myLocalStorage = localStorage.getItem('meuItem') || [];
     let myValuesStorage = JSON.parse(localStorage.getItem('user'));
-    if (!myValuesStorage) {
+    let products = JSON.parse(localStorage.getItem('products'));
+    let login = JSON.parse(localStorage.getItem('login'));
+
+    if (!myValuesStorage || !products || !login) {
         myValuesStorage = [];
+        products = [];
+        login = {};
     }
     const userExists = myValuesStorage.some(user => user.email === 'admin@admin.com');
-    if (!userExists) {
+    const productsExists = products.length > 0;
+    if (!userExists || !productsExists || !login.name) {
         localStorage.setItem('user', JSON.stringify([...myValuesStorage, {email: 'admin@admin.com', passEncrypt: 'admin123'}]));
+        localStorage.setItem('products', JSON.stringify([...products, {name: 'Cadeira Gamer', price: 1200, description: 'Cadeira Gamer', image: 'https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/g/tgt-hrtc-bl023.jpg'}, {name: 'Cadeira Gamer', price: 1200, description: 'Cadeira Gamer', image: 'https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/g/tgt-hrtc-bl023.jpg'}, {name: 'Cadeira Gamer', price: 1200, description: 'Cadeira Gamer', image: 'https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/g/tgt-hrtc-bl023.jpg'}, {name: 'Cadeira Gamer', price: 1200, description: 'Cadeira Gamer', image: 'https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/g/tgt-hrtc-bl023.jpg'}]));
+        localStorage.setItem('login', JSON.stringify({name: 'Admin', email:'admin@admin.com', phone: '99999999999', address: 'Av. Tao Tao Distante' }));
     }
 }, [])
   return (
