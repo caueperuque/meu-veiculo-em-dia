@@ -7,6 +7,7 @@ import * as bcrypt from 'bcryptjs';
 const ContextProvider = ({children}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [name, setName] = useState();
   const [signUp, setSignUp] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
   const [login, setLogin] = useState(false);
@@ -22,6 +23,11 @@ const ContextProvider = ({children}) => {
     setPassword(e.target.value);
   }
 
+  const inputName = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+  }
+
   const saveSignUp = (e) => {
     const regexEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
     let getTeste = JSON.parse(localStorage.getItem('user')) || [];
@@ -32,7 +38,7 @@ const ContextProvider = ({children}) => {
         setErrorLogin(true);
     } else {
         const passEncrypt = bcrypt.hashSync(password, 10);
-        getTeste.push({ email, passEncrypt });
+        getTeste.push({ email, passEncrypt, name });
         localStorage.setItem('user', JSON.stringify(getTeste));
         setSignUp(true);
     }
@@ -61,6 +67,8 @@ const ContextProvider = ({children}) => {
     saveSignUp,
     errorLogin,
     verifyLogin,
+    inputName,
+    name,
   };
 
   return (

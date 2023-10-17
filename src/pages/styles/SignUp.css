@@ -15,10 +15,9 @@
   text-align: center;
   /* border: 2px solid red; */
   padding: 40px;
-  border-radius: 5px;
   width: 100%;
+  border-radius: 5px;
   box-shadow: 0px 0px 10px rgb(192, 191, 191);
-  height: 30vw;
   color: #414143;
 }
 
@@ -32,7 +31,7 @@
   
 }
 
-.signup__input-email, .signup__input-password {
+.signup__input-email, .signup__input-password, .signup__input-name {
   /* border: solid 2px blue; */
   border: solid 1px #414143;
   color: black;

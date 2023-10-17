@@ -11,6 +11,8 @@ export default function SignUp() {
     password,
     saveSignUp,
     errorLogin,
+    inputName,
+    name,
   } = useContext(Context);
 
   return (
@@ -21,6 +23,17 @@ export default function SignUp() {
           <h3 className="signup__slogan">Falta pouco para deixar seu veículo em dia!</h3>
         </div>
         <div className="signup__container-fields">
+          <label htmlFor="name">
+            <h3>Nome: </h3>
+            <input
+              id="name"
+              className="signup__input-name"
+              placeholder="Nome"
+              onChange={inputName}
+              value={name}
+            >
+            </input>
+          </label>
           <label htmlFor="email">
             <h3>Email: </h3>
             <input
