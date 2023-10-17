@@ -1,6 +1,6 @@
-.mainHeader__container {
-  background-color: black;
-  display: flex;
-  width: 100%;
-  border: 2px solid red;
+.header__welcome {
+  color: rgb(47, 47, 47);
+  position: absolute;
+  padding: 20px;
+  left: 0;
 }

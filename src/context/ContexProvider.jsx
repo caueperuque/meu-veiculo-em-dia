@@ -10,6 +10,7 @@ const ContextProvider = ({children}) => {
   const [password, setPassword] = useState();
   const [phone, setPhone] = useState();
   const [address, setAddress] = useState();
+  const [userName, setUserName] = useState("");
   
   const [signUp, setSignUp] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
@@ -59,8 +60,10 @@ const ContextProvider = ({children}) => {
         const passEncrypt = bcrypt.hashSync(password, 10);
         getTeste.push({ email, passEncrypt, name, phone, address });
         localStorage.setItem('user', JSON.stringify(getTeste));
+        localStorage.setItem('login', JSON.stringify({ name, email, phone, address }));
         setSignUp(true);
     }
+    
   }
 
   const verifyLogin = (e) => {
@@ -75,6 +78,11 @@ const ContextProvider = ({children}) => {
     if (email === "admin@admin.com" && password === "admin123") {
       setLogin(true);
     }
+  }
+
+  const userLogin = (e) => {
+    e.preventDefault();
+    setLogin(true);
   }
 
 
@@ -92,6 +100,8 @@ const ContextProvider = ({children}) => {
     phone,
     inputAddress,
     address,
+    setUserName,
+    userName,
   };
 
   return (
