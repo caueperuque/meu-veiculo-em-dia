@@ -44,3 +44,29 @@
 .card__image {
   width: 50%;
 }
+
+.card__input-search {
+  background-color: white;
+  color: black;
+  width: 40%;
+  padding: 7px;
+  border: solid black 2px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.card__filter {
+  display: flex;
+  /* padding: 20px; */
+  width: 20%;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 20px;
+  /* border: 2px red solid; */
+}
+
+.card__label-filter {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+}

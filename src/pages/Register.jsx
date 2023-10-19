@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 
 export default function Register() {
   const getStorage = JSON.parse(localStorage.getItem('products'));
+  const getLogin = JSON.parse(localStorage.getItem('login'));
 
   const [formData, setFormData] = useState({
     name: "",
     price: "",
     description: "",
     image: "",
+    fantasyName: getLogin.fantasyName,
   });
 
   const handleChange = (e) => {
