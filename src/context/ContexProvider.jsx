@@ -19,6 +19,10 @@ const ContextProvider = ({children}) => {
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
   const [cityDefault, setCityDefault] = useState()
+  const [cnpj, setCnpj] = useState();
+  const [fantasyName, setFantasyName] = useState();
+  const [cpf, setCpf] = useState();
+
   
   const [signUp, setSignUp] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
@@ -27,6 +31,21 @@ const ContextProvider = ({children}) => {
   const inputCityDefault = (e) => {
     e.preventDefault();
     setCityDefault(e.target.value);
+  }
+
+  const inputFantasyName = (e) => {
+    e.preventDefault();
+    setFantasyName(e.target.value);
+  }
+
+  const inputCnpj = (e) => {
+    e.preventDefault();
+    setCnpj(e.target.value)
+  }
+
+  const inputCpf = (e) => {
+    e.preventDefault();
+    setCpf(e.target.value)
   }
 
   const inputNumber = (e) => {
@@ -70,31 +89,55 @@ const ContextProvider = ({children}) => {
 
 
   const saveSignUp = (e) => {
+    // e.preventDefault()
     const regexEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
     let getTeste = JSON.parse(localStorage.getItem('user')) || [];
 
-    if (
+    if (type === "fornecedor") {
+      console.log('é fornecedor');
+      if (
         !regexEmail.test(email) 
-        || password.length < 6
+        || String(password).length < 6
+        || !password
         || !name
+        || !phone
+        || String(phone).length !== 11
+        || !city
+        || !state
+        || !number
+        || !cepp
+        || !cnpj
+        || !fantasyName
+      )
+        e.preventDefault();
+        setSignUp(false);
+        setErrorLogin(true);
+    }
+
+    if (type === "cliente") {
+      if (
+        !regexEmail.test(email) 
+        || String(password).length < 6
+        || !password
+        || !name
+        || !phone
         || phone.length !== 11
         || !city
         || !state
         || !number
         || !cepp
+        || !cpf
       ) {
         e.preventDefault();
-        console.log(name);
         setSignUp(false);
         setErrorLogin(true);
-    } else {
+      }
+    }
         const passEncrypt = bcrypt.hashSync(password, 10);
         getTeste.push({ email, passEncrypt, name, phone, address, city, state, number, cepp});
         localStorage.setItem('user', JSON.stringify(getTeste));
         localStorage.setItem('login', JSON.stringify({ name, email, phone, address, city, state, number, cepp, type }));
-        setSignUp(true);
-    }
-    
+        setSignUp(true);    
   }
 
   const verifyLogin = (e) => {
@@ -150,7 +193,13 @@ const ContextProvider = ({children}) => {
     number,
     inputNumber,
     inputCityDefault,
-    cityDefault
+    cityDefault,
+    cnpj,
+    inputCnpj,
+    fantasyName,
+    inputFantasyName,
+    cpf,
+    inputCpf
   };
 
   return (

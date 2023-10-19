@@ -31,7 +31,13 @@ export default function SignUp() {
     number,
     inputNumber,
     inputCityDefault,
-    cityDefault
+    cityDefault,
+    inputCnpj,
+    cnpj,
+    fantasyName,
+    inputFantasyName,
+    inputCpf,
+    cpf
   } = useContext(Context);
 
   const ufs = [
@@ -91,8 +97,8 @@ export default function SignUp() {
               <label>
                 <h3>Qual seu perfil:</h3>
                 <select className="signup__select" onClick={inputType}>
-                  <option value="cliente">cliente</option>
-                  <option value="fornecedor" onClick={inputType}>fornecedor</option>
+                  <option value="cliente">Cliente</option>
+                  <option value="fornecedor" onClick={inputType}>Fornecedor</option>
                 </select>
               </label>
             <label htmlFor="name">
@@ -130,9 +136,10 @@ export default function SignUp() {
             </label>
             <label>
               <h3>UF:</h3>
-              <select className="signup__select">
-                { ufs.map((uf) => (
-                  <option value={state ? state : uf}>{state ? state : uf}</option>
+              <select className="signup__select uf">
+              <option value={state ? state : ''}>{state ? state : ''}</option>
+                { ufs.filter((uf) => uf !== state).map((uf) => (
+                  <option value={uf} key={Math.random}>{uf}</option>
                 )) }
               </select>
             </label>
@@ -190,6 +197,8 @@ export default function SignUp() {
                       className="signup__input-name"
                       placeholder="xxxxxxxxxxxxxx"
                       maxLength={14}
+                      onChange={inputCnpj}
+                      value={cnpj}
                     >
                     </input>
                   </label>
@@ -198,6 +207,8 @@ export default function SignUp() {
                     <input
                       className="signup__input-name"
                       placeholder="Zacarias Peças LTDA"
+                      value={fantasyName}
+                      onChange={inputFantasyName}
                     >
                     </input>
                   </label>
@@ -211,6 +222,8 @@ export default function SignUp() {
                     className="signup__input-name"
                     placeholder="xxxxxxxxxxx"
                     maxLength={11}
+                    value={cpf}
+                    onChange={inputCpf}
                   >
                   
                   </input>
