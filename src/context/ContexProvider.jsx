@@ -136,7 +136,7 @@ const ContextProvider = ({children}) => {
         const passEncrypt = bcrypt.hashSync(password, 10);
         getTeste.push({ email, passEncrypt, name, phone, address, city, state, number, cepp});
         localStorage.setItem('user', JSON.stringify(getTeste));
-        localStorage.setItem('login', JSON.stringify({ name, email, phone, address, city, state, number, cepp, type }));
+        localStorage.setItem('login', JSON.stringify({ name, email, phone, address, street, city, state, number, cepp, type }));
         setSignUp(true);    
   }
 

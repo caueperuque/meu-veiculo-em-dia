@@ -10,6 +10,7 @@ import ContextProvider from './context/ContexProvider';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import MainHome from './pages/MainHome';
+import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <MainHome />
+  },
+  {
+    path: "/profile",
+    element: <Profile />
   }
 ])
 

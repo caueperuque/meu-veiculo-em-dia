@@ -23,8 +23,8 @@ export default function MainHeader() {
         <img src={logo} className="header__logo"/>
         <h1 className="header__title">Meu Veículo em Dia</h1>
         <div className="header__btns">
-          <Link to="/register" className="header__btn-signup">
-            teste
+          <Link to="/profile" className="header__btn-signup">
+            Editar Perfil
           </Link>
           { typeUser === "cliente" ? (
             <Link to="/register" className="header__btn-login">
