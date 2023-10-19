@@ -44,7 +44,7 @@ export default function ProductDetails() {
       <h1 style={{color: 'black'}}>{getProduct.name}</h1>
       <h2 style={{color: 'black'}}>{`Fornecido por ${getProduct.fantasyName}`}</h2>
       <img src={getProduct.image}/>
-      <h3 style={{color: 'black'}}>{getProduct.description}</h3>
+      <h3 style={{color: 'black'}}>{getProduct.descriptionDetailed}</h3>
       <p style={{color: 'black'}}>Preço: {`R$ ${getProduct.price},00`}</p>
       <button onClick={handleClick}>
         <h2>Fazer pedido</h2>
