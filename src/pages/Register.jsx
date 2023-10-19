@@ -14,6 +14,7 @@ export default function Register() {
     name: "",
     price: "",
     description: "",
+    descriptionDetailed: "",
     image: "",
     fantasyName: getLogin.fantasyName,
   });
@@ -29,7 +30,7 @@ export default function Register() {
   const handleAddProduct = (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.price || !formData.description || !formData.image) {
+    if (!formData.name || !formData.price || !formData.description || !formData.image || !formData.descriptionDetailed) {
       Swal.fire({
         icon: "error",
         title: "Erro",
@@ -58,6 +59,7 @@ export default function Register() {
       name: "",
       price: "",
       description: "",
+      descriptionDetailed: "",
       image: "",
       fantasyName: getLogin.fantasyName,
     });
@@ -85,11 +87,19 @@ export default function Register() {
           ></input>
         </label>
         <label>
-          <h3 style={{ color: "black" }}>Descrição:</h3>
+          <h3 style={{ color: "black" }}>Descrição Prévia:</h3>
           <input
             name="description"
             onChange={handleChange}
             value={formData.description}
+          ></input>
+        </label>
+        <label>
+          <h3 style={{ color: "black" }}>Descrição Detalhada:</h3>
+          <input
+            name="descriptionDetailed"
+            onChange={handleChange}
+            value={formData.descriptionDetailed}
           ></input>
         </label>
         <label>

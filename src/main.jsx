@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import MainHome from './pages/MainHome';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
+import ProductDetails from './pages/ProductDetails';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />
+  },
+  {
+    path: "/details/:id",
+    element: <ProductDetails />
   }
 ])
 

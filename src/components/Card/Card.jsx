@@ -80,14 +80,14 @@ export default function Card() {
       </div>
       <section className="card__container">
         <article className="card__subcontainer">
-          {filteredProducts.map(({ name, price, description, image, fantasyName }) => (
+          {filteredProducts.map(({ id, name, price, description, image, fantasyName }) => (
             <div className="card__individual">
               <h3>{`Fornecido por: ${fantasyName}`}</h3>
               <h2>{name}</h2>
               <img className="card__image" src={image} alt={name} />
               <h3>{`R$ ${price}`}</h3>
               <p>{description}</p>
-              <Link>
+              <Link to={`/details/${id}`}>
                 Adquirir
               </Link>
             </div>
