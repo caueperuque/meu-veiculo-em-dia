@@ -55,7 +55,7 @@ export default function Profile() {
   };
   
   const handleClick = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const updatedFormData = {
       ...getStorage,
       ...formData
