@@ -31,18 +31,21 @@
 .card__individual {
   /* border: solid 2px green; */
   display: flex;
-  width: 45%;
+  width: 450px;
+  height: 450px;
   flex-direction: column;
-  align-items: center;
   margin: 20px;
   /* justify-content: center; */
   padding: 20px;
   background-color: rgb(206, 206, 206);
   border-radius: 5px;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
 }
 
 .card__image {
-  width: 50%;
+  width: 60%;
 }
 
 .card__input-search {
