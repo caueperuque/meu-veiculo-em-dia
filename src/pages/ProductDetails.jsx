@@ -6,6 +6,8 @@ export default function ProductDetails() {
 
   const getProduct = JSON.parse(localStorage.getItem('products')).find((product) => product.id === Number(id));
 
+  const getUser = JSON.parse(localStorage.getItem('login'))
+
   const numRequest = Math.floor(Math.random() * 10000);
   
 
@@ -14,9 +16,11 @@ export default function ProductDetails() {
 
     const requestStorage = JSON.parse(localStorage.getItem('requests')) || [];
 
-    console.log(requestStorage.map((request) => request.order, numRequest));
+    const userRequest = requestStorage.find((request) => request.user === getUser.name)
 
-    if (requestStorage.find((request) => request.order === numRequest)) {
+    
+    if (userRequest && userRequest.order === numRequest) {
+      console.log(userRequest.order, numRequest);
       Swal.fire({
         icon: "info",
         title: 'Pedido já feito!',
@@ -32,6 +36,7 @@ export default function ProductDetails() {
     });
     const myRequest = {
       ...getProduct,
+      user: getUser.name,
       order: numRequest
     }
 

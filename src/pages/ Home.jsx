@@ -269,7 +269,7 @@ export default function Home() {
       }
     ]
 
-    if (!myValuesStorage || !products || !login) {
+    if (!myValuesStorage || !products || login) {
         myValuesStorage = [];
         products = [];
         login = {};

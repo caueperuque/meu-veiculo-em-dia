@@ -5,14 +5,16 @@ export default function CardOrders() {
 
   const getUser = JSON.parse(localStorage.getItem('login'));
 
+  const orderFiltered = getOrders.filter((order) => order.user === getUser.name);
+
   const { street, number, state, city } = getUser
 
-  // console.log(getOrders);
+  console.log(orderFiltered);
 
   return (
     <div>
       {getOrders ? (
-        getOrders.map((order, index) => (
+        orderFiltered.map((order, index) => (
           <div key={index}>
               <h3 style={{color: "black"}}>Pedido: #{order.order}</h3>
               <h3 style={{color: "black"}}>Nome do Produto/Serviço: {order.name}</h3>
