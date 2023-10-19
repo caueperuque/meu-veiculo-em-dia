@@ -4,13 +4,15 @@
   align-items: center;
   /* border: 2px red solid; */
   width: 50%;
-  height: 100vh;
+  margin: 20px;
+  /* height: 100vw; */
 }
 
 .signup__main {
   /* border: 2px solid red; */
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .signup__form {
@@ -71,4 +73,13 @@
 .signup__btn:focus,
 .signup__btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.signup__select {
+  width: 100%;
+  padding: 5px;
+  background-color: white;
+  color: black;
+  margin: 20px 0;
+  font-size: 20px;
 }

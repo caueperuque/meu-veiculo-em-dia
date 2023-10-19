@@ -12,10 +12,36 @@ const ContextProvider = ({children}) => {
   const [address, setAddress] = useState();
   const [userName, setUserName] = useState("");
   const [products, setProducts] = useState();
+  const [type, setType] = useState("cliente")
+  const [cepp, setCep] = useState();
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [street, setStreet] = useState("");
+  const [number, setNumber] = useState("");
+  const [cityDefault, setCityDefault] = useState()
   
   const [signUp, setSignUp] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
   const [login, setLogin] = useState(false);
+
+  const inputCityDefault = (e) => {
+    e.preventDefault();
+    setCityDefault(e.target.value);
+  }
+
+  const inputNumber = (e) => {
+    e.preventDefault();
+    setNumber(e.target.value);
+  }
+
+  const inputCep = (e) => {
+    e.preventDefault();
+    setCep(e.target.value);
+  }
+
+  const inputType = (e) => {
+    setType(e.target.value);
+  }
 
   const inputName = (e) => {
     e.preventDefault();
@@ -52,6 +78,10 @@ const ContextProvider = ({children}) => {
         || password.length < 6
         || !name
         || phone.length !== 11
+        || !city
+        || !state
+        || !number
+        || !cepp
       ) {
         e.preventDefault();
         console.log(name);
@@ -59,9 +89,9 @@ const ContextProvider = ({children}) => {
         setErrorLogin(true);
     } else {
         const passEncrypt = bcrypt.hashSync(password, 10);
-        getTeste.push({ email, passEncrypt, name, phone, address });
+        getTeste.push({ email, passEncrypt, name, phone, address, city, state, number, cepp});
         localStorage.setItem('user', JSON.stringify(getTeste));
-        localStorage.setItem('login', JSON.stringify({ name, email, phone, address }));
+        localStorage.setItem('login', JSON.stringify({ name, email, phone, address, city, state, number, cepp, type }));
         setSignUp(true);
     }
     
@@ -107,6 +137,20 @@ const ContextProvider = ({children}) => {
     userName,
     setProducts,
     products,
+    type,
+    inputType,
+    cepp,
+    inputCep,
+    street,
+    setStreet,
+    city,
+    setCity,
+    state,
+    setState,
+    number,
+    inputNumber,
+    inputCityDefault,
+    cityDefault
   };
 
   return (
