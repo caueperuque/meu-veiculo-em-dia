@@ -146,7 +146,7 @@ const ContextProvider = ({children}) => {
       }
     }
         const passEncrypt = bcrypt.hashSync(password, 10);
-        getTeste.push({ email, passEncrypt, name, phone, address, city, state, number, cepp});
+        getTeste.push({ email, passEncrypt, name, phone, address, city, state, number, cepp, type});
         localStorage.setItem('user', JSON.stringify(getTeste));
         localStorage.setItem('login', JSON.stringify({ name, email, phone, address, street, city, state, number, cepp, type, fantasyName }));
         setSignUp(true);    
@@ -155,15 +155,17 @@ const ContextProvider = ({children}) => {
   const verifyLogin = (e) => {
     const getTeste = JSON.parse(localStorage.getItem('user')) || [];
     const user = getTeste.find((item) => item.email === email);
-    localStorage.setItem('login', JSON.stringify({name: user.name, email: user.email, phone: user.phone, cepp: user.cepp, city: user.city, number: user.number, state: user.state, street: user.street, type: user.type}))
+    
     if (email === "admin@admin.com" && password === "admin123") {
       return setLogin(true);
     }
     if (!user || !bcrypt.compareSync(password, user.passEncrypt)) {
       e.preventDefault();
+      console.log(user);
       console.log(email === "admin@admin.com");
       setErrorLogin(true);
     } else if (user && bcrypt.compareSync(password, user.passEncrypt)) {
+      localStorage.setItem('login', JSON.stringify({name: user.name, email: user.email, phone: user.phone, cepp: user.cepp, city: user.city, number: user.number, state: user.state, street: user.street, type: user.type}))
       setLogin(true);
     }
 
