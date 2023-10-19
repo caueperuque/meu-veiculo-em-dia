@@ -26,7 +26,7 @@ export default function MainHeader() {
           <Link to="/profile" className="header__btn-signup">
             Editar Perfil
           </Link>
-          <Link to="/request" className="header__btn-login">
+          <Link to="/orders" className="header__btn-login">
               Pedidos
             </Link>
           { typeUser === "fornecedor" && (

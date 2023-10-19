@@ -13,6 +13,7 @@ import MainHome from './pages/MainHome';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
+import Orders from './pages/Orders';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
   {
     path: "/details/:id",
     element: <ProductDetails />
-  }
+  },
+  {
+    path: "/orders",
+    element: <Orders />
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

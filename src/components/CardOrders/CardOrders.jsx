@@ -1,0 +1,29 @@
+import { Link } from "react-router-dom";
+
+export default function CardOrders() {
+  const getOrders = JSON.parse(localStorage.getItem('requests'));
+
+  const getUser = JSON.parse(localStorage.getItem('login'));
+
+  const { street, number, state, city } = getUser
+
+  // console.log(getOrders);
+
+  return (
+    <div>
+      {getOrders ? (
+        getOrders.map((order, index) => (
+          <div key={index}>
+              <h3 style={{color: "black"}}>Pedido: #{order.order}</h3>
+              <h3 style={{color: "black"}}>Nome do Produto/Serviço: {order.name}</h3>
+              <h3 style={{color: "black"}}>Endereço: {street} nº{number}, {city} - {state}</h3>
+              <h3 style={{color: "black"}}>Status: Finalizado</h3>
+          </div>
+        ))
+      ) : (
+        <h1 style={{color: "black"}}>Nenhum pedido feito</h1>
+      )}
+      <Link to="/home">Voltar</Link>
+    </div>
+  );
+}
