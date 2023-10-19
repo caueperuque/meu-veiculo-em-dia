@@ -26,15 +26,14 @@ export default function MainHeader() {
           <Link to="/profile" className="header__btn-signup">
             Editar Perfil
           </Link>
-          { typeUser === "cliente" ? (
-            <Link to="/register" className="header__btn-login">
-              Sou cliente
+          <Link to="/request" className="header__btn-login">
+              Pedidos
             </Link>
-          ) : (
+          { typeUser === "fornecedor" && (
             <Link to="/register" className="header__btn-login">
               Cadastrar Produto
             </Link>
-          ) }
+          )}
           <Link to="/" className="header__btn-signup">
             Sair
           </Link>

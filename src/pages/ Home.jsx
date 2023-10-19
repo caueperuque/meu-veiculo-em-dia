@@ -11,6 +11,7 @@ export default function Home() {
 
     const objProducts = [
       {
+        id: 1,
         name: 'Alinhamento',
         price: 60,
         description: 'Alinhamento computadorizado, por um preço preço justo!',
@@ -18,6 +19,7 @@ export default function Home() {
         fantasyName: 'StockCar AutoCenter'
       },
       {
+        id: 2,
         name: 'Balanceamento',
         price: 50,
         description: 'Venha fazer o balanceamento com a gente, usamos as tecnologias e equipamentos mais atuais do mercado!',
@@ -25,6 +27,7 @@ export default function Home() {
         fantasyName: 'StockCar AutoCenter'
       },
       {
+        id: 3,
         name: 'Pneus',
         price: 300,
         description: 'Temos pneus de melhor qualidade no mercado.',
@@ -32,6 +35,7 @@ export default function Home() {
         fantasyName: 'StockCar AutoCenter'
       },
       {
+        id: 4,
         name: 'Kit Pastilha de freio',
         price: 100,
         description: 'Kit com as 4 pastilhas de freio',
@@ -39,6 +43,7 @@ export default function Home() {
         fantasyName: 'Aurélio Auto Peças'
       },
       {
+        id: 5,
         name: 'Filtro de ar',
         price: 51,
         description: 'Filtro de ar resistente e duradouro',
@@ -46,6 +51,7 @@ export default function Home() {
         fantasyName: 'Zacarias Peças LTDA'
       },
       {
+        id: 6,
         name: 'Parabrisa GOL',
         price: 700,
         description: 'Parabrisa VOLKSWAGEN GOL /Saveiro/Parati G2/G3/G4',
@@ -53,6 +59,7 @@ export default function Home() {
         fantasyName: 'Aurélio Auto Peças'
       },
       {
+        id: 7,
         name: 'Parachoque Strada',
         price: 214,
         description: 'Parachoque Dianteiro Strada 2014/2020',
@@ -60,6 +67,7 @@ export default function Home() {
         fantasyName: 'Irmãos Castros LTDA'
       },
       {
+        id: 8,
         name: 'Calota Ford Ka',
         price: 45,
         description: 'Calota Grid Aro 14 Ford Modelo Ka 19/ Prata Cubo Baixo',
@@ -67,6 +75,7 @@ export default function Home() {
         fantasyName: 'StockCar AutoCenter'
       },
       {
+        id: 9,
         name: 'Farol nova S10',
         price: 653,
         description: 'FAROL NOVA S10 LTZ 2013 2014 2015 2016 PROJETOR LE FLY',
@@ -74,6 +83,7 @@ export default function Home() {
         fantasyName: 'Prudente Distribuidora LTDA'
       },
       {
+        id: 10,
         name: 'Porta Celta',
         price: 400,
         description: 'PORTA TRASEIRA DIREITA CELTA PRISMA 2006 A 2014 ORIGINAL',
@@ -81,14 +91,15 @@ export default function Home() {
         fantasyName: 'Fox Auto Peças'
       },
       {
+        id: 11,
         name: 'Suspenção Corsa',
         price: 1150,
         description: 'Suspensão Regulável Slim Corsa Maxx KIT Completo',
         image: 'https://www.macaulay.com.br/img/produtos/Susp-Rosca-Slim-MACAULAY-kit-IT02-M1.jpg',
         fantasyName: 'Fox Auto Peças'
-      },
-      
+      },      
       {
+        id: 12,
         name: 'Funilaria',
         price: 1200,
         description: 'Funilaria de qualidade é Hernani Funilaria! Orçamentos de 1200 reais',
@@ -107,7 +118,7 @@ export default function Home() {
     if (!userExists || !productsExists || !login.name) {
         localStorage.setItem('user', JSON.stringify([...myValuesStorage, {email: 'admin@admin.com', passEncrypt: 'admin123'}]));
         localStorage.setItem('products', JSON.stringify([...products, ...objProducts ]));
-        localStorage.setItem('login', JSON.stringify({name: 'Admin', email:'admin@admin.com', phone: '99999999999', address: 'Av. Tao Tao Distante' }));
+        localStorage.setItem('login', JSON.stringify({name: 'Admin', email:'admin@admin.com', phone: '99999999999', address: 'Av. Tao Tao Distante', type: 'fornecedor' }));
     }
 }, [])
   return (

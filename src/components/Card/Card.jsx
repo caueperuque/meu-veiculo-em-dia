@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Context from "../../context/Context";
 import './Card.css';
+import { Link } from "react-router-dom";
 
 export default function Card() {
   const { products, setProducts } = useContext(Context);
@@ -11,25 +12,27 @@ export default function Card() {
     setProducts(JSON.parse(localStorage.getItem('products')));
   }, []);
 
-  const filteredProducts = products ? products
-  .filter((product) => {
-    const productName = product.name.toLowerCase();
-    const fantasyName = product.fantasyName.toLowerCase();
-    const query = searchQuery.toLowerCase();
+  const filteredProducts = products
+  ? products
+      .filter((product) => {
+        const productName = (product.name || '').toLowerCase(); // Verifique se name está definido
+        const fantasyName = (product.fantasyName || '').toLowerCase(); // Verifique se fantasyName está definido
+        const query = searchQuery.toLowerCase();
 
-    return productName.includes(query) || fantasyName.includes(query);
-  })
-  .sort((a, b) => {
-    if (filter === 'maisCaro') {
-      return Number(b.price) - Number(a.price);
-    }
+        return productName.includes(query) || fantasyName.includes(query);
+      })
+      .sort((a, b) => {
+        if (filter === 'maisCaro') {
+          return Number(b.price) - Number(a.price);
+        }
 
-    if (filter === 'maisBarato') {
-      return Number(a.price) - Number(b.price);
-    }
+        if (filter === 'maisBarato') {
+          return Number(a.price) - Number(b.price);
+        }
 
-    return 0;
-  }) : [];
+        return 0;
+      })
+  : [];
 
   
 
@@ -84,6 +87,9 @@ export default function Card() {
               <img className="card__image" src={image} alt={name} />
               <h3>{`R$ ${price}`}</h3>
               <p>{description}</p>
+              <Link>
+                Adquirir
+              </Link>
             </div>
           ))}
         </article>
