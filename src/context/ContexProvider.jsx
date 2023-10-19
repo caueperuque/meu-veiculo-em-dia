@@ -22,7 +22,7 @@ const ContextProvider = ({children}) => {
   const [cnpj, setCnpj] = useState();
   const [fantasyName, setFantasyName] = useState();
   const [cpf, setCpf] = useState();
-
+  const [existEmail, setExistEmail] = useState();
   
   const [signUp, setSignUp] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
@@ -87,11 +87,23 @@ const ContextProvider = ({children}) => {
     setPassword(e.target.value);
   }
 
+  const checkEmailExists = (email) => {
+    const users = JSON.parse(localStorage.getItem('user')) || [];
+    return users.some((user) => user.email === email);
+  };
 
   const saveSignUp = (e) => {
     // e.preventDefault()
     const regexEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
     let getTeste = JSON.parse(localStorage.getItem('user')) || [];
+
+    const emailExists = checkEmailExists(email);
+
+    if(emailExists) {
+      e.preventDefault();
+      setExistEmail(true);
+      setSignUp(false);
+    }
 
     if (type === "fornecedor") {
       console.log('é fornecedor');
@@ -143,6 +155,7 @@ const ContextProvider = ({children}) => {
   const verifyLogin = (e) => {
     const getTeste = JSON.parse(localStorage.getItem('user')) || [];
     const user = getTeste.find((item) => item.email === email);
+    localStorage.setItem('login', JSON.stringify({name: user.name, email: user.email, phone: user.phone, cepp: user.cepp, city: user.city, number: user.number, state: user.state, street: user.street, type: user.type}))
     if (email === "admin@admin.com" && password === "admin123") {
       return setLogin(true);
     }

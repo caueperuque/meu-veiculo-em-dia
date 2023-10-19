@@ -1,9 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Register() {
   const getStorage = JSON.parse(localStorage.getItem('products'));
   const getLogin = JSON.parse(localStorage.getItem('login'));
+
+
 
   const [formData, setFormData] = useState({
     name: "",
@@ -37,7 +38,7 @@ export default function Register() {
     <main>
       <form>
         <label>
-          <h3 style={{color: "black"}}>Nome do Produto:</h3>
+          <h3 style={{color: "black"}}>Nome do Produto/Serviço:</h3>
           <input
             name="name"
             onChange={handleChange}

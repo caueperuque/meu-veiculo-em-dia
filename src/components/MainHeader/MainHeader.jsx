@@ -35,6 +35,9 @@ export default function MainHeader() {
               Cadastrar Produto
             </Link>
           ) }
+          <Link to="/" className="header__btn-signup">
+            Sair
+          </Link>
         </div>
       </nav>
     </header>

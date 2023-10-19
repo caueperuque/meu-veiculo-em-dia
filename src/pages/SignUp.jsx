@@ -37,7 +37,8 @@ export default function SignUp() {
     fantasyName,
     inputFantasyName,
     inputCpf,
-    cpf
+    cpf,
+    existEmail
   } = useContext(Context);
 
   const ufs = [
@@ -257,7 +258,7 @@ export default function SignUp() {
           <Link to="/home" className="signup__btn" type="submit" onClick={saveSignUp}>
             Cadastrar
           </Link>
-          { errorLogin && <p className="signup__error">Preencha os campos corretamente!</p> }
+          { errorLogin && <p className="signup__error">Preencha os campos corretamente ou email já cadastrado!</p> }
         </form>
       </div>
     </main>

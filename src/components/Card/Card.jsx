@@ -35,7 +35,7 @@ export default function Card() {
 
   return (
     <main className="card__main">
-      <h1 style={{marginTop: '200px', color: 'black'}}>Produtos</h1>
+      <h1 style={{marginTop: '200px', color: 'black'}}>Produtos e Serviços</h1>
       <input
         type="text"
         value={searchQuery}
