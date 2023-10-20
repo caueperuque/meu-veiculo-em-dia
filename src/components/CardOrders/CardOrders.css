@@ -9,6 +9,7 @@
   border: gray 2px solid;
   border-radius: 10px;
   display: flex;
+  text-align: center;
   flex-direction: column;
   align-items: center;
   width: 50%;
@@ -35,4 +36,10 @@
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+@media (max-width: 768px) {
+  .cardOrders__card {
+    width: 90%;
+  }
 }
