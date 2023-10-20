@@ -3,6 +3,7 @@ import Context from './Context';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import * as bcrypt from 'bcryptjs';
+import { v4 as uuidv4 } from 'uuid';
 
 const ContextProvider = ({children}) => {
   const [name, setName] = useState();
@@ -145,10 +146,11 @@ const ContextProvider = ({children}) => {
         setErrorLogin(true);
       }
     }
+        const id = uuidv4();
         const passEncrypt = bcrypt.hashSync(password, 10);
-        getTeste.push({ email, passEncrypt, name, phone, address, city, state, number, cepp, type});
+        getTeste.push({ id, email, passEncrypt, name, phone, address, city, state, number, cepp, type});
         localStorage.setItem('user', JSON.stringify(getTeste));
-        localStorage.setItem('login', JSON.stringify({ name, email, phone, address, street, city, state, number, cepp, type, fantasyName }));
+        localStorage.setItem('login', JSON.stringify({ id, name, email, phone, address, street, city, state, number, cepp, type, fantasyName }));
         setSignUp(true);    
   }
 

@@ -43,7 +43,7 @@ export default function ProductDetails() {
     });
     const myRequest = {
       ...getProduct,
-      user: getUser.email,
+      idUser: getUser.id,
       order: numRequest,
       payment: payments[Math.floor(Math.random() * 4)]
     }
