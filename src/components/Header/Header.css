@@ -6,14 +6,15 @@
   justify-content: center;
   top: 0;
   box-shadow: 0px 0px 8px rgb(158, 158, 158);
+  /* border: solid 2px red; */
   z-index: 1;
 }
 
 .header__navbar {
   padding: 0px 32px;
   display: flex;
-  width: 70%; 
-  justify-content: space-between;
+  width: 100%; 
+  justify-content: space-around;
   align-items: center;
   /* border: 2px red solid; */
 }
