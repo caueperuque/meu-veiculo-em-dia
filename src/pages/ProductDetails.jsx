@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import './styles/ProductDetails.css';
 import MainHeader from "../components/MainHeader/MainHeader";
@@ -77,6 +77,9 @@ export default function ProductDetails() {
               <h2>Fazer pedido</h2>
             </button>
           </div>
+          <Link to="/home">
+              Voltar
+            </Link>
         </div>
       </div>
     </main>

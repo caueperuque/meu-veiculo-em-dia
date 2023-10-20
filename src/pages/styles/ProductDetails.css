@@ -68,3 +68,27 @@
 .productDetails__title {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .productDetails__container {
+    /* border: 2px solid red; */
+    flex-direction: column;
+  }
+
+  .productDetails__image {
+    width: 300px;
+    margin-bottom: 30px;
+  }
+
+  .productDetails__bar {
+    display: none;
+  }
+
+  .productDetails__title {
+    margin-top: 250px;
+  }
+
+  .productDetails__container-about {
+    height: 100%;
+  }
+}
