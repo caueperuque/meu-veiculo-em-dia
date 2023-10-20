@@ -4,12 +4,11 @@
   align-items: center;
   justify-content: center;
   color: black;
-  margin-top:  200px;
-  text-align: center
+  margin-top: 200px;
+  text-align: center;
 }
 
 .contact__container-images {
-  /* border: solid 2px red; */
   display: flex;
   justify-content: center;
   padding: 40px;
@@ -25,8 +24,28 @@
 }
 
 .contact__subcontainer-tech {
-  /* border: 2px solid red; */
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 30px;
+}
+
+@media (max-width: 768px) {
+  .contact__main-container {
+    margin-top: 170px;
+    padding: 30px;
+    font-size: 12px;
+  }
+
+  .contact__icons {
+    width: 40px;
+  }
+
+  .contact__container-images {
+    padding: 20px;
+  }
+
+  .contact__subcontainer-tech {
+    padding: 20px; 
+  }
 }
