@@ -278,7 +278,6 @@ export default function Home() {
     if (!userExists || !productsExists || !login.name) {
         localStorage.setItem('user', JSON.stringify([...myValuesStorage]));
         localStorage.setItem('products', JSON.stringify([...products, ...objProducts ]));
-        localStorage.setItem('login', JSON.stringify({name: 'Admin', email:'admin@admin.com', phone: '99999999999', address: 'Av. Tao Tao Distante', type: 'fornecedor' }));
     }
 }, [])
   return (
