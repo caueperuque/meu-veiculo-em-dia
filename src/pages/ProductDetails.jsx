@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import './styles/ProductDetails.css';
+import MainHeader from "../components/MainHeader/MainHeader";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -45,15 +47,30 @@ export default function ProductDetails() {
   }
   
   return (
-    <div>
-      <h1 style={{color: 'black'}}>{getProduct.name}</h1>
-      <h2 style={{color: 'black'}}>{`Fornecido por ${getProduct.fantasyName}`}</h2>
-      <img src={getProduct.image}/>
-      <h3 style={{color: 'black'}}>{getProduct.descriptionDetailed}</h3>
-      <p style={{color: 'black'}}>Preço: {`R$ ${getProduct.price},00`}</p>
-      <button onClick={handleClick}>
-        <h2>Fazer pedido</h2>
-      </button>
-    </div>
+    <main className="productDetails__main">
+      <MainHeader />
+      <div className="productDetails__title">
+        <h1>{getProduct.name}</h1>
+        <h2>{`Fornecido por ${getProduct.fantasyName}`}</h2>
+      </div>
+      <div className="productDetails__container">
+        <div className="productDetails__container-image">
+          <img className="productDetails__image" src={getProduct.image}/>
+        </div>
+        <hr className="productDetails__bar"/>
+        <div className="productDetails__container-about">
+          <div>
+            <h2>Descrição:</h2>
+          <h3 className="productDetails__description">{getProduct.descriptionDetailed}</h3>
+          </div>
+          <div className="productDetails__finish">
+            <h2 className="productDetails__price">Preço: {`R$ ${getProduct.price},00`}</h2>
+            <button onClick={handleClick} className="productDetails__btn">
+              <h2>Fazer pedido</h2>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
   )
 }
