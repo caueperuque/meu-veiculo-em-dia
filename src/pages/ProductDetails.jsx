@@ -28,7 +28,6 @@ export default function ProductDetails() {
     ]
 
     if (userRequest && userRequest.order === numRequest) {
-      console.log(userRequest.order, numRequest);
       Swal.fire({
         icon: "info",
         title: 'Pedido já feito!',
@@ -44,7 +43,7 @@ export default function ProductDetails() {
     });
     const myRequest = {
       ...getProduct,
-      user: getUser.name,
+      user: getUser.email,
       order: numRequest,
       payment: payments[Math.floor(Math.random() * 4)]
     }

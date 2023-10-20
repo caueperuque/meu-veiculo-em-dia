@@ -6,7 +6,7 @@ export default function CardOrders() {
 
   const getUser = JSON.parse(localStorage.getItem('login'));
 
-  const orderFiltered = getOrders.filter((order) => order.user === getUser.name);
+  const orderFiltered = getOrders.filter((order) => order.user === getUser.email);
 
   const { street, number, state, city } = getUser
 

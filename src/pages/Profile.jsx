@@ -68,6 +68,7 @@ export default function Profile() {
       }
     });
 
+
     Swal.fire({
       icon: "success",
       title: "Edição realizada!",
