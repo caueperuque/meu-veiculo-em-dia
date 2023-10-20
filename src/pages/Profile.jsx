@@ -1,6 +1,8 @@
-import { useContext, useState } from "react"
-import Context from "../context/Context"
+import { useState } from "react"
 import { Link } from "react-router-dom";
+import './styles/Profile.css';
+import Swal from "sweetalert2";
+
 
 export default function Profile() {
   const [formData, setFormData] = useState({
@@ -65,17 +67,37 @@ export default function Profile() {
         updatedFormData[key] = getStorage[key];
       }
     });
+
+    Swal.fire({
+      icon: "success",
+      title: "Edição realizada!",
+      text: "As alterações foram salvas com sucesso!"
+    })
+
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      cepp: "",
+      street: "",
+      number: "",
+      city: "",
+      state: ""
+    })
+
     localStorage.setItem('login', JSON.stringify(updatedFormData));
   };
   
   
 
   return (
-    <main>
-      <form>
+    <main className="profile__main">
+      <form className="profile__form">
+        <h1>Editar perfil</h1>
         <label>
-          <h2 style={{color: 'black'}}>Nome:</h2>
+          <h2>Nome:</h2>
           <input
+            className="profile__input"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -84,8 +106,9 @@ export default function Profile() {
           </input>
         </label>
         <label>
-          <h2 style={{color: 'black'}}>Celular:</h2>
+          <h2>Celular:</h2>
           <input
+            className="profile__input"
             placeholder={phone}
             name="phone"
             value={formData.phone}
@@ -94,8 +117,9 @@ export default function Profile() {
           </input>
         </label>
         <label>
-          <h3 style={{color: 'black'}}>Email:</h3>
+          <h3>Email:</h3>
           <input
+            className="profile__input"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -104,8 +128,9 @@ export default function Profile() {
           </input>
         </label>
         <label>
-          <h3 style={{color: 'black'}}>Cep:</h3>
+          <h3>Cep:</h3>
           <input
+            className="profile__input"
             name="cepp"
             value={formData.cepp}
             onChange={handleChange}
@@ -114,8 +139,9 @@ export default function Profile() {
           </input>
         </label>
         <label>
-          <h3 style={{color: 'black'}}>Endereço:</h3>
+          <h3>Endereço:</h3>
           <input
+            className="profile__input"
             name="street"
             value={formData.street}
             onChange={handleChange}
@@ -124,8 +150,9 @@ export default function Profile() {
           </input>
         </label>
         <label>
-          <h3 style={{color: 'black'}}>Número:</h3>
+          <h3>Número:</h3>
           <input
+            className="profile__input"
             name="number"
             value={formData.number}
             onChange={handleChange}
@@ -134,8 +161,9 @@ export default function Profile() {
           </input>
         </label>
         <label>
-          <h3 style={{color: 'black'}}>Cidade:</h3>
+          <h3>Cidade:</h3>
           <input
+            className="profile__input"
             name="city"
             value={formData.city}
             onChange={handleChange}
@@ -144,11 +172,12 @@ export default function Profile() {
           </input>
         </label>
         <label>
-          <h2 style={{color: 'black'}}>UF:</h2>
+          <h3>UF:</h3>
           <select
             name="state"
             value={formData.state}
             onChange={handleChange}
+            className="profile__select"
           >
             <option value={state}>{state}</option>
             { ufs.filter((uf) => uf !== state).map((uf) => (
@@ -156,7 +185,7 @@ export default function Profile() {
                 )) }
           </select>
         </label>
-        <button onClick={handleClick}>
+        <button className="profile__btn" onClick={handleClick}>
           Editar
         </button>
         <Link to="/home">

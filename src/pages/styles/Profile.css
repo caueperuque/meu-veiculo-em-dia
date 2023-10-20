@@ -1,0 +1,54 @@
+.profile__main {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: black;
+}
+
+.profile__form {
+  /* border: 2px solid red; */
+  box-shadow: 0 0 10px gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  padding: 30px;
+  /* height: 80%; */
+  width: 30%;
+}
+
+.profile__input {
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom:10px;
+}
+
+.profile__input::placeholder {
+  text-align: center;
+}
+
+.profile__select {
+  background-color: white;
+  color: black;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+.profile__btn {
+  padding: 10px;
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}

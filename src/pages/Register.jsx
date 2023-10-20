@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import './styles/Register.css';
 
 
 export default function Register() {
@@ -68,12 +69,14 @@ export default function Register() {
   };
 
   return (
-    <main>
-      <form>
+    <main className="register__main">
+      <form className="register__form">
+        <h1 className="register__title">Cadastrar novo produto/serviço</h1>
         <label>
           <h3 style={{ color: "black" }}>Nome do Produto/Serviço:</h3>
           <input
             name="name"
+            className="register__input"
             onChange={handleChange}
             value={formData.name}
           ></input>
@@ -82,6 +85,7 @@ export default function Register() {
           <h3 style={{ color: "black" }}>Preço:</h3>
           <input
             name="price"
+            className="register__input"
             onChange={handleChange}
             value={formData.price}
           ></input>
@@ -90,6 +94,7 @@ export default function Register() {
           <h3 style={{ color: "black" }}>Descrição Prévia:</h3>
           <input
             name="description"
+            className="register__input"
             onChange={handleChange}
             value={formData.description}
           ></input>
@@ -98,6 +103,7 @@ export default function Register() {
           <h3 style={{ color: "black" }}>Descrição Detalhada:</h3>
           <input
             name="descriptionDetailed"
+            className="register__input"
             onChange={handleChange}
             value={formData.descriptionDetailed}
           ></input>
@@ -106,11 +112,12 @@ export default function Register() {
           <h3 style={{ color: "black" }}>Imagem:</h3>
           <input
             name="image"
+            className="register__input"
             onChange={handleChange}
             value={formData.image}
           ></input>
         </label>
-        <button onClick={handleAddProduct}>Cadastrar Produto</button>
+        <button onClick={handleAddProduct} className="register__btn">Cadastrar Produto</button>
         <Link to="/home">Voltar</Link>
       </form>
     </main>
