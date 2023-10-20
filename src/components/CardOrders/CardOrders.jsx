@@ -6,7 +6,7 @@ export default function CardOrders() {
 
   const getUser = JSON.parse(localStorage.getItem('login'));
 
-  const orderFiltered = getOrders.filter((order) => order.user === getUser.name);
+  const orderFiltered = getOrders.filter((order) => order.idUser === getUser.id);
 
   const { street, number, state, city } = getUser
 
@@ -14,7 +14,7 @@ export default function CardOrders() {
 
   return (
     <div className="cardOrders__container">
-      {getOrders.length > 0 ? (
+      {orderFiltered.length > 0 ? (
         orderFiltered.map((order, index) => (
           <div key={index} className="cardOrders__card">
               <h3 style={{color: "black"}}>Pedido: #{order.order}</h3>

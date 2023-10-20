@@ -15,43 +15,44 @@ export default function ProductDetails() {
 
   const handleClick = (e) => {
     e.preventDefault();
-
+  
     const requestStorage = JSON.parse(localStorage.getItem('requests')) || [];
-
-    const userRequest = requestStorage.find((request) => request.user === getUser.name)
-
+  
+    const userRequest = requestStorage.find((request) => request.order === numRequest && request.idUser === getUser.id && request.product.id === getProduct.id);
+  
     const payments = [
       "Pix",
       "Cartão de Crédito",
       "Cartão de Débito",
       "Na hora da entrega"
     ]
-
-    if (userRequest && userRequest.order === numRequest) {
-      console.log(userRequest.order, numRequest);
+  
+    if (userRequest) {
       Swal.fire({
         icon: "info",
         title: 'Pedido já feito!',
-        text: `Pedido #${numRequest} já foi realizado!`,
+        text: `Você já fez um pedido para o produto "${getProduct.name}" com o número de pedido #${numRequest}!`,
       });
       return;
     }
-
+  
     Swal.fire({
       icon: "success",
       title: 'Pedido realizado!',
       text: `Pedido realizado #${numRequest}`,
     });
     const myRequest = {
-      ...getProduct,
-      user: getUser.name,
+      product: getProduct,
+      idUser: getUser.id,
       order: numRequest,
       payment: payments[Math.floor(Math.random() * 4)]
     }
-
-    localStorage.setItem('requests', JSON.stringify([...requestStorage, myRequest]))
+  
+    localStorage.setItem('requests', JSON.stringify([...requestStorage, myRequest]));
     return;
   }
+  
+  
   
   return (
     <main className="productDetails__main">

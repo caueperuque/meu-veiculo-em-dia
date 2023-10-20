@@ -79,7 +79,7 @@ export default function SignUp() {
         setCity(data.city);
         setStreet(data.street);        
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
   
