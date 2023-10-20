@@ -17,7 +17,7 @@ export default function Profile() {
   });
 
   const getStorage = JSON.parse(localStorage.getItem('login'));
-  const { name: names, cepp, city, email, number, phone, state, street, type } = getStorage;
+  const { id, name: names, cepp, city, email, number, phone, state, street, type, passEncrypt } = getStorage;
   const ufs = [
     "AC",
     "AL",
@@ -50,9 +50,11 @@ export default function Profile() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(passEncrypt);
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value
+      [name]: value,
+      passEncrypt,
     }));
   };
   
@@ -85,10 +87,14 @@ export default function Profile() {
       city: "",
       state: ""
     })
-
+    const getUserById = JSON.parse(localStorage.getItem('user'));
+    const teste = getUserById.filter((user) => user.id !== id);
+    console.log(teste);
+    localStorage.setItem('user', JSON.stringify([...teste, updatedFormData]))
     localStorage.setItem('login', JSON.stringify(updatedFormData));
   };
   
+  // $2a$10$CGfu0mfTyVyF3T6w4IyI2OC3Na3T8CnD4Uq3yPHHiARJxl2lAZ9BK
   
 
   return (

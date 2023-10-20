@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function Home() {
   useEffect(() => {
     // const myLocalStorage = localStorage.getItem('meuItem') || [];
-    let myValuesStorage = JSON.parse(localStorage.getItem('user'));
+    const myValuesStorage = JSON.parse(localStorage.getItem('user')) || [];
     let products = JSON.parse(localStorage.getItem('products'));
     let login = JSON.parse(localStorage.getItem('login'));
 
@@ -269,15 +269,14 @@ export default function Home() {
       }
     ]
 
-    if (!myValuesStorage || !products || login) {
-        myValuesStorage = [];
+    if (!products || login) {
         products = [];
         login = {};
     }
     const userExists = myValuesStorage.some(user => user.email === 'admin@admin.com');
     const productsExists = products.length > 0;
     if (!userExists || !productsExists || !login.name) {
-        localStorage.setItem('user', JSON.stringify([...myValuesStorage, {email: 'admin@admin.com', passEncrypt: 'admin123'}]));
+        localStorage.setItem('user', JSON.stringify([...myValuesStorage]));
         localStorage.setItem('products', JSON.stringify([...products, ...objProducts ]));
         localStorage.setItem('login', JSON.stringify({name: 'Admin', email:'admin@admin.com', phone: '99999999999', address: 'Av. Tao Tao Distante', type: 'fornecedor' }));
     }

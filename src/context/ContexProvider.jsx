@@ -94,18 +94,11 @@ const ContextProvider = ({children}) => {
   };
 
   const saveSignUp = (e) => {
-    // e.preventDefault()
     const regexEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
     let getTeste = JSON.parse(localStorage.getItem('user')) || [];
-
+  
     const emailExists = checkEmailExists(email);
-
-    if(emailExists) {
-      e.preventDefault();
-      setExistEmail(true);
-      setSignUp(false);
-    }
-
+  
     if (type === "fornecedor") {
       console.log('é fornecedor');
       if (
@@ -121,12 +114,15 @@ const ContextProvider = ({children}) => {
         || !cepp
         || !cnpj
         || !fantasyName
-      )
+        || emailExists
+      ) {
         e.preventDefault();
         setSignUp(false);
         setErrorLogin(true);
+        return; // Add this return statement
+      }
     }
-
+  
     if (type === "cliente") {
       if (
         !regexEmail.test(email) 
@@ -140,19 +136,23 @@ const ContextProvider = ({children}) => {
         || !number
         || !cepp
         || !cpf
+        || emailExists
       ) {
         e.preventDefault();
         setSignUp(false);
         setErrorLogin(true);
+        return; // Add this return statement
       }
     }
-        const id = uuidv4();
-        const passEncrypt = bcrypt.hashSync(password, 10);
-        getTeste.push({ id, email, passEncrypt, name, phone, address, city, state, number, cepp, type});
-        localStorage.setItem('user', JSON.stringify(getTeste));
-        localStorage.setItem('login', JSON.stringify({ id, name, email, phone, address, street, city, state, number, cepp, type, fantasyName }));
-        setSignUp(true);    
-  }
+  
+    const id = uuidv4();
+    const passEncrypt = bcrypt.hashSync(password, 10);
+    getTeste.push({ id, email, passEncrypt, name, phone, address, city, state, number, cepp, type });
+    localStorage.setItem('user', JSON.stringify(getTeste));
+    localStorage.setItem('login', JSON.stringify({ id, name, email, phone, address, street, city, state, number, cepp, type, fantasyName }));
+    setSignUp(true);
+  };
+  
 
   const verifyLogin = (e) => {
     const getTeste = JSON.parse(localStorage.getItem('user')) || [];
