@@ -101,12 +101,12 @@ export default function Register() {
         </label>
         <label>
           <h3 style={{ color: "black" }}>Descrição Detalhada:</h3>
-          <input
+          <textarea
             name="descriptionDetailed"
             className="register__input"
             onChange={handleChange}
             value={formData.descriptionDetailed}
-          ></input>
+          ></textarea>
         </label>
         <label>
           <h3 style={{ color: "black" }}>Imagem:</h3>

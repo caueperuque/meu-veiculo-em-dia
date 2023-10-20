@@ -52,3 +52,16 @@
   font-family: inherit;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .profile__form {
+    padding: 30px;
+    width: 90%;
+    margin: 20px;
+  }
+
+  .profile__main {
+    padding: auto;
+    height: 100%;
+  }
+}

@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+.card__title {
+  margin-top: 200px;
+  color: black;
+  text-align: center;
+}
+
 .card__container {
   /* border: 2px solid red; */
   display: flex;
@@ -95,4 +101,31 @@
 
 .card__container-image {
   padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .card__title {
+    margin-top: 240px;
+  }
+
+  .card__input-search {
+    width: 80%;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .card__label-filter {
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+  }
+
+  .card__filter {
+    width: 100%;
+  }
+
+  .card__individual {
+    font-size: 18px;
+  }
 }

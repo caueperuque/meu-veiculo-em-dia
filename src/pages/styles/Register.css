@@ -56,3 +56,21 @@
 .register__title {
   padding: 20px;
 }
+
+
+@media (max-width: 768px) {
+  .register__form {
+    padding: 30px;
+    width: 90%;
+    margin: 20px;
+  }
+
+  .register__main {
+    padding: auto;
+    height: 100%;
+  }
+
+  .register__main h1 {
+    font-size: 40px;
+  }
+}

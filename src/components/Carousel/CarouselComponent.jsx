@@ -16,7 +16,7 @@ class CustomCarousel extends Carousel {
 
 export default function CarouselComponent() {
   return (
-    <div className="carousel__teste">
+    <div className="carousel__container">
       <CustomCarousel infiniteLoop={true}>
       <div>
         <img src={onix} />

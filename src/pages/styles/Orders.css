@@ -1,0 +1,11 @@
+.orders__title {
+  color: black;
+  margin-top: 200px;
+  text-align: center
+}
+
+@media (max-width: 768px) {
+  .orders__title {
+    margin-top: 250px;
+  }
+}
