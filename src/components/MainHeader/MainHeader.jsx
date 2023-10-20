@@ -4,22 +4,22 @@ import logo from '../../assets/logo.png';
 import { useContext, useEffect, useState } from 'react';
 import Context from '../../context/Context';
 
-
-
 export default function MainHeader() {
   const [typeUser, setTypeUser] = useState();
+  const { userName, setUserName } = useContext(Context);
 
-  const { userName, setUserName } = useContext(Context)
+  // Use useEffect para atualizar o nome do usuário quando o contexto muda
   useEffect(() => {
     const login = JSON.parse(localStorage.getItem('login'));
     const splitName = login.name.split(" ");
     setTypeUser(login.type);
     setUserName(splitName[0]);
-  })
+  }, [userName]); // Adicione userName às dependências do useEffect
+
   return (
     <header className="header__container">
       <nav className="header__navbar">
-        <h3 className="header__welcome">{`Bem vindo, ${userName} !`}</h3>
+        <h3 className="header__welcome">{`Bem-vindo, ${userName} !`}</h3>
         <Link to="/home">
           <img src={logo} className="header__logo"/>
         </Link>
@@ -29,9 +29,9 @@ export default function MainHeader() {
             Editar Perfil
           </Link>
           <Link to="/orders" className="header__btn-login">
-              Pedidos
-            </Link>
-          { typeUser === "fornecedor" && (
+            Pedidos
+          </Link>
+          {typeUser === "fornecedor" && (
             <Link to="/register" className="header__btn-login">
               Cadastrar Produto
             </Link>

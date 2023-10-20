@@ -269,7 +269,7 @@ export default function Home() {
       }
     ]
 
-    if (!products || login) {
+    if (!products || login == null) {
         products = [];
         login = {};
     }
