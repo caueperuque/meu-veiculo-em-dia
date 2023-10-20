@@ -20,7 +20,9 @@ export default function MainHeader() {
     <header className="header__container">
       <nav className="header__navbar">
         <h3 className="header__welcome">{`Bem vindo, ${userName} !`}</h3>
-        <img src={logo} className="header__logo"/>
+        <Link to="/home">
+          <img src={logo} className="header__logo"/>
+        </Link>
         <h1 className="header__title">Meu Veículo em Dia</h1>
         <div className="header__btns">
           <Link to="/profile" className="header__btn-signup">

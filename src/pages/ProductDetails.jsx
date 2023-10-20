@@ -20,7 +20,13 @@ export default function ProductDetails() {
 
     const userRequest = requestStorage.find((request) => request.user === getUser.name)
 
-    
+    const payments = [
+      "Pix",
+      "Cartão de Crédito",
+      "Cartão de Débito",
+      "Na hora da entrega"
+    ]
+
     if (userRequest && userRequest.order === numRequest) {
       console.log(userRequest.order, numRequest);
       Swal.fire({
@@ -39,7 +45,8 @@ export default function ProductDetails() {
     const myRequest = {
       ...getProduct,
       user: getUser.name,
-      order: numRequest
+      order: numRequest,
+      payment: payments[Math.floor(Math.random() * 4)]
     }
 
     localStorage.setItem('requests', JSON.stringify([...requestStorage, myRequest]))
