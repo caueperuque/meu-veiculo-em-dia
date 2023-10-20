@@ -81,13 +81,15 @@ export default function Card() {
       <section className="card__container">
         <article className="card__subcontainer">
           {filteredProducts.map(({ id, name, price, description, image, fantasyName }) => (
-            <div className="card__individual">
+            <div className="card__individual" key={Math.random()}>
               <h3>{`Fornecido por: ${fantasyName}`}</h3>
-              <h2>{name}</h2>
-              <img className="card__image" src={image} alt={name} />
+              <div className="card__container-image">
+                <h2>{name}</h2>
+                <img className="card__image" src={image} alt={name} />
+              </div>
               <h3>{`R$ ${price}`}</h3>
               <p>{description}</p>
-              <Link to={`/details/${id}`}>
+              <Link to={`/details/${id}`} className="card__btn">
                 Adquirir
               </Link>
             </div>
