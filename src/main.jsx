@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
 import Orders from './pages/Orders';
+import Contact from './pages/Contact';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/orders",
     element: <Orders />
+  },
+  {
+    path: "/contact",
+    element: <Contact />
   },
 ])
 

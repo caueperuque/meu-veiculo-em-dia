@@ -1,0 +1,32 @@
+.contact__main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin-top:  200px;
+  text-align: center
+}
+
+.contact__container-images {
+  /* border: solid 2px red; */
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.contact__icons {
+  width: 50px;
+}
+
+.contact__subcontainer-images {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact__subcontainer-tech {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+}

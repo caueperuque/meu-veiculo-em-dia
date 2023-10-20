@@ -16,6 +16,9 @@ export default function Header() {
           <Link to="/login" className="header__btn-login">
             Login
           </Link>
+          <Link to="/contact" className="header__btn-login">
+            Contato
+          </Link>
         </div>
       </nav>
     </header>
