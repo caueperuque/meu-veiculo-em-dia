@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import './CardOrders.css'
 
 export default function CardOrders() {
-  const getOrders = JSON.parse(localStorage.getItem('requests'));
+  const getOrders = JSON.parse(localStorage.getItem('requests')) || [];
 
   const getUser = JSON.parse(localStorage.getItem('login'));
 
@@ -14,7 +14,7 @@ export default function CardOrders() {
 
   return (
     <div className="cardOrders__container">
-      {getOrders ? (
+      {getOrders.length > 0 ? (
         orderFiltered.map((order, index) => (
           <div key={index} className="cardOrders__card">
               <h3 style={{color: "black"}}>Pedido: #{order.order}</h3>
@@ -25,7 +25,7 @@ export default function CardOrders() {
           </div>
         ))
       ) : (
-        <h1 style={{color: "black"}}>Nenhum pedido feito</h1>
+        <h1 style={{color: "black", padding: "50px"}}>Nenhum pedido feito</h1>
       )}
       <Link to="/home" className="cardOrders__btn">Voltar</Link>
     </div>

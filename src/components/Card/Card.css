@@ -29,7 +29,7 @@
 }
 
 .card__individual {
-  /* border: solid 2px green; */
+  border: solid 2px rgb(255, 255, 255);
   display: flex;
   width: 450px;
   height: 500px;
@@ -37,7 +37,7 @@
   margin: 20px;
   /* justify-content: center; */
   padding: 20px;
-  background-color: rgb(206, 206, 206);
+  background-color: rgb(218, 218, 218);
   border-radius: 5px;
   align-items: center;
   justify-content: space-around;
