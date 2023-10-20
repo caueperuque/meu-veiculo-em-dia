@@ -149,7 +149,7 @@ export default function SignUp() {
               <input
                 id="city"
                 className="signup__input-name"
-                placeholder="ex: Av. Ademar de Barros"
+                placeholder="ex: Presidente Prudente"
                 onChange={inputCityDefault}
                 value={city ? city : cityDefault}
               >
