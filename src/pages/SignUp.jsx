@@ -258,7 +258,8 @@ export default function SignUp() {
           <Link to="/home" className="signup__btn" type="submit" onClick={saveSignUp}>
             Cadastrar
           </Link>
-          { errorLogin && <p className="signup__error">Preencha os campos corretamente ou email já cadastrado!</p> }
+          { existEmail && <p className="signup__error">Email já cadastrado!</p>}
+          { errorLogin && <p className="signup__error">Preencha os campos corretamente</p> }
         </form>
       </div>
     </main>

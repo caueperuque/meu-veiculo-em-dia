@@ -12,7 +12,6 @@ export default function Login() {
     errorLogin,
   } = useContext(Context);
 
-
   return (
     <main className="signup__main">
       <div className="signup__container">

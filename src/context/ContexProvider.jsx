@@ -98,6 +98,13 @@ const ContextProvider = ({ children }) => {
 
     const emailExists = checkEmailExists(email);
 
+    if (emailExists) {
+      e.preventDefault();
+      setSignUp(false);
+      setExistEmail(true);
+      return;
+    }
+
     if (type === "fornecedor") {
       if (
         !regexEmail.test(email) ||
@@ -133,8 +140,7 @@ const ContextProvider = ({ children }) => {
         !state ||
         !number ||
         !cepp ||
-        !cpf ||
-        emailExists
+        !cpf
       ) {
         e.preventDefault();
         setSignUp(false);
@@ -232,6 +238,7 @@ const ContextProvider = ({ children }) => {
     inputFantasyName,
     cpf,
     inputCpf,
+    existEmail
   };
 
   useEffect(() => {
