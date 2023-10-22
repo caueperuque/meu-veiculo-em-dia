@@ -38,7 +38,8 @@ export default function SignUp() {
     inputFantasyName,
     inputCpf,
     cpf,
-    existEmail
+    existEmail,
+    setExistEmail
   } = useContext(Context);
 
   const ufs = [
@@ -72,6 +73,7 @@ export default function SignUp() {
   ]
 
   useEffect(() => {
+    setExistEmail(false);
     const fetchData = async () => {
       try {
         const data = await cep(cepp);

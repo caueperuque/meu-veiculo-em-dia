@@ -101,6 +101,7 @@ const ContextProvider = ({ children }) => {
     if (emailExists) {
       e.preventDefault();
       setSignUp(false);
+      setErrorLogin(false);
       setExistEmail(true);
       return;
     }
@@ -123,6 +124,7 @@ const ContextProvider = ({ children }) => {
       ) {
         e.preventDefault();
         setSignUp(false);
+        setExistEmail(false);
         setErrorLogin(true);
         return;
       }
@@ -144,6 +146,7 @@ const ContextProvider = ({ children }) => {
       ) {
         e.preventDefault();
         setSignUp(false);
+        setExistEmail(false);
         setErrorLogin(true);
         return;
       }
@@ -170,11 +173,10 @@ const ContextProvider = ({ children }) => {
       JSON.stringify({ id, name, email, phone, address, street, city, state, number, cepp, type, fantasyName })
     );
     setSignUp(true);
-    setUserName(name); // Atualize o nome do usuário no contexto
+    setUserName(name);
   };
 
   const verifyLogin = (e) => {
-    // e.preventDefault();
     const getTeste = JSON.parse(localStorage.getItem('user')) || [];
     const user = getTeste.find((item) => item.email === email);
     console.log(user);
@@ -190,7 +192,7 @@ const ContextProvider = ({ children }) => {
         'login',
         JSON.stringify(user)
       );
-      setUserName(user.name); // Atualize o nome do usuário no contexto
+      setUserName(user.name);
       setLogin(true);
     }
   };
@@ -238,7 +240,8 @@ const ContextProvider = ({ children }) => {
     inputFantasyName,
     cpf,
     inputCpf,
-    existEmail
+    existEmail,
+    setExistEmail
   };
 
   useEffect(() => {
