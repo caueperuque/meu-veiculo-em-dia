@@ -16,7 +16,7 @@
     "react-bootstrap": "^2.9.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^6.16.0",
+    "react-router-dom": "^5.3.4",
     "sweetalert2": "^11.7.32",
     "uuid": "^9.0.1"
   },
@@ -25,10 +25,13 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "@trybe/eslint-config-frontend": "^1.7.1",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "stylelint": "^14.16.1",
+    "stylelint-order": "^5.0.0",
     "vite": "^4.4.5"
   }
 }
