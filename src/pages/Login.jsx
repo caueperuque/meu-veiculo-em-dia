@@ -47,6 +47,9 @@ export default function Login() {
             Entrar
           </Link>
           { errorLogin && <p className="signup__error">Email ou senha inválidos</p> }
+          <Link to="/" className="back__btn">
+              Voltar
+          </Link>
         </form>
       </div>
     </main>

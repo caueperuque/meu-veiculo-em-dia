@@ -262,6 +262,9 @@ export default function SignUp() {
           </Link>
           { existEmail && <p className="signup__error">Email já cadastrado!</p>}
           { errorLogin && <p className="signup__error">Preencha os campos corretamente</p> }
+          <Link to="/" className="back__btn">
+              Voltar
+          </Link>
         </form>
       </div>
     </main>

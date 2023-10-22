@@ -88,6 +88,8 @@
   font-size: 18px;
 }
 
+
+
 @media (max-width: 768px) {
   .signup__container {
     width: 100%;
@@ -103,3 +105,4 @@
     background-color: white;
   }
 }
+
