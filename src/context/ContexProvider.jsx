@@ -247,7 +247,7 @@ const ContextProvider = ({ children }) => {
       const splitName = login.name.split(" ");
       setUserName(splitName[0]);
     }
-  }, []); // Certifique-se de atualizar o nome do usuário ao montar o componente
+  }, []); 
 
   return (
     <Context.Provider value={contextValue}>
