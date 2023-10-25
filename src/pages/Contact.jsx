@@ -20,6 +20,7 @@ export default function Contact() {
         <article>
           <h1 >Olá</h1>
           <h2>Esse site foi totalmente desenvolvido por mim (Cauê Peruque) 🙋</h2>
+          <h2>Com ideias geradas por meu colega (Luca César)</h2>
           <h2>Espero que tenham gostado do resultado, foi um projeto um tanto desafiador,</h2>
           <h2>tanto pelas funcionalidades quanto o design.</h2>
           <h2>Estarei deixando meus meios de contato, caso se interesse pode mandar uma mensagem,</h2>
